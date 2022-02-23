@@ -8,5 +8,22 @@ package square
 // CalcSquare(10.0, SidesSquare)
 // CalcSquare(10.0, SidesCircle)
 
-func CalcSquare(sideLen float64, sidesNum #yourTypeNameHere#) float64 {
+type intCustomeType int
+
+const (
+	SidesTriangle intCustomeType = 3
+	SidesSquare                  = 4
+	SidesCircle                  = 0
+)
+
+func CalcSquare(sideLen float64, sidesNum intCustomeType) float64 {
+	if sidesNum == SidesTriangle {
+		return math.Pow(3, 0.5) * 3 * sideLen * sideLen / 4
+	} else if sidesNum == SidesSquare {
+		return sideLen * sideLen
+	} else if sidesNum == SidesCircle {
+		return math.Pi * sideLen * sideLen
+	} else {
+		return 0
+	}
 }
